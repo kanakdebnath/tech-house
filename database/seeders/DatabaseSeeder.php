@@ -3,13 +3,13 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use App\Models\Role;
-use App\Models\Configuration;
 use App\Models\Blog;
-use App\Models\Page;
 use App\Models\Menu;
+use App\Models\Page;
+use App\Models\Role;
 use App\Models\MenuItem;
+use App\Models\Configuration;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -52,14 +52,14 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        
+
         $this->defaultConfiguration();
         $this->defaultBlog();
         $this->defaultPage();
         $this->defaultMenu();
 
     }
-    
+
     function defaultConfiguration()
     {
         $data = [
@@ -440,13 +440,13 @@ class DatabaseSeeder extends Seeder
         ];
         Configuration::insert($data);
     }
-    
+
     function defaultPage()
     {
         $page = Page::create([
-                'user_id'       => '1',  
+                'user_id'       => '1',
                 'title'         => 'Sample page',
-                'slug'          => 'sample-page',  
+                'slug'          => 'sample-page',
                 'content'       => 'This is a sample page',
                 'excerpt'       => 'Excerpt2',
                 'comment'       => 1,
@@ -461,14 +461,14 @@ class DatabaseSeeder extends Seeder
                 'value' => '1667219414_image_2022_07_25T07_04_32_910Z.png',
             ]);
     }
-    
+
     function defaultBlog()
     {
         $blog = Blog::create(
             [
-                'user_id'       =>  '1',  
+                'user_id'       =>  '1',
                 'title'         => 'Hello World',
-                'slug'          => 'hello-world',  
+                'slug'          => 'hello-world',
                 'content'       => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
                 'status'        => '1',
                 'visibility'    => 'Pu',
@@ -481,32 +481,32 @@ class DatabaseSeeder extends Seeder
                 'value' => '1671452680_pic7.jpg',
             ]);
     }
-    
+
     function defaultMenu()
     {
         $menu1 = Menu::create(
             [
-                'user_id'       => '1',  
+                'user_id'       => '1',
                 'title'         => 'Primary Menu',
-                'slug'          => 'primary-menu',  
+                'slug'          => 'primary-menu',
                 'order'        	=> '1',
             ]
         );
 
         $menu2 = Menu::create(
             [
-                'user_id'       => '1',  
+                'user_id'       => '1',
                 'title'         => 'Footer Menu',
-                'slug'          => 'footer-menu',  
+                'slug'          => 'footer-menu',
                 'order'         => '2',
             ]
         );
-		
+
         $menu3 = Menu::create(
             [
-                'user_id'       => '1',  
+                'user_id'       => '1',
                 'title'         => 'Primary Menu',
-                'slug'          => 'primary-menu',  
+                'slug'          => 'primary-menu',
                 'order'         => '3',
             ]
         );
@@ -544,7 +544,6 @@ class DatabaseSeeder extends Seeder
             'attribute' => 'Home',
             'menu_target' => 0,
             'order' => 0,
-
         ]);
     }
 }

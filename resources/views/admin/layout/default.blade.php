@@ -11,35 +11,43 @@
     <meta name="robots" content="" />
     <meta name="description" content="@yield('page_description', $page_description ?? '')" />
     <meta name="format-detection" content="telephone=no">
-    
-    <title>{{ config('Site.title') ? config('Site.title') : config('dz.name') ; }} | @yield('title', $page_title ?? '')</title>
+
+    <title>{{ config('Site.title') ? config('Site.title') : config('dz.name') }} | @yield('title', $page_title ?? '')</title>
     <!-- Favicon icon -->
-    @if(config('Site.favicon'))
-        <link rel="icon" type="image/png" href="{{ asset('storage/configuration-images/'.config('Site.favicon')) }}">
-    @else 
+    @if (config('Site.favicon'))
+        <link rel="icon" type="image/png"
+            href="{{ asset('storage/configuration-images/' . config('Site.favicon')) }}">
+    @else
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon.png') }}">
     @endif
-    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" type="text/css" />
 
     @php
-        $action = DzHelper::controller().'_'.DzHelper::action();
+        $action = DzHelper::controller() . '_' . DzHelper::action();
     @endphp
-    @if(isset($action) && !empty(config('dz.public.pagelevel.css.'.$action))) 
-        @foreach(config('dz.public.pagelevel.css.'.$action) as $style)
-            <link href="{{ asset($style) }}" rel="stylesheet" type="text/css"/>
+    @if (isset($action) && !empty(config('dz.public.pagelevel.css.' . $action)))
+        @foreach (config('dz.public.pagelevel.css.' . $action) as $style)
+            <link href="{{ asset($style) }}" rel="stylesheet" type="text/css" />
         @endforeach
-    @endif  
+    @endif
 
     {{-- Global Theme Styles (used by all pages) --}}
-    @if(!empty(config('dz.public.global.css'))) 
-        @foreach(config('dz.public.global.css') as $style)
-            <link href="{{ asset($style) }}" rel="stylesheet" type="text/css"/>
+    @if (!empty(config('dz.public.global.css')))
+        @foreach (config('dz.public.global.css') as $style)
+            <link href="{{ asset($style) }}" rel="stylesheet" type="text/css" />
         @endforeach
     @endif
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-    
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.min.css
+" rel="stylesheet">
+    @stack('css')
 </head>
 
 <body>
@@ -67,10 +75,12 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="{!! url('/admin'); !!}" class="brand-logo">
+            <a href="{!! url('/admin') !!}" class="brand-logo">
                 @if (!empty(config('Site.icon_logo')) && !empty(config('Site.text_logo')))
-                    <img class="logo-abbr" src="{{ asset('storage/configuration-images/'.config('Site.icon_logo')) }}">
-                    <img class="brand-title" src="{{ asset('storage/configuration-images/'.config('Site.text_logo')) }}">
+                    <img class="logo-abbr"
+                        src="{{ asset('storage/configuration-images/' . config('Site.icon_logo')) }}">
+                    <img class="brand-title"
+                        src="{{ asset('storage/configuration-images/' . config('Site.text_logo')) }}">
                 @else
                     <img class="logo-abbr" src="{{ asset('images/logo.png') }}">
                     <img class="brand-title" src="{{ asset('images/logo-text.png') }}">
@@ -90,14 +100,14 @@
         <!--**********************************
             Header start
         ***********************************-->
-        
-          @include('admin.elements.header')
-		
-		
+
+        @include('admin.elements.header')
+
+
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
-        
+
         <!--**********************************
             Sidebar start
         ***********************************-->
@@ -105,7 +115,7 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
-		
+
         <!--**********************************
             Content body start kri
         ***********************************-->
@@ -122,14 +132,14 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        
-		@include('admin.elements.footer')
-		
+
+        @include('admin.elements.footer')
+
         <!--**********************************
             Footer end
         ***********************************-->
 
-		<!--**********************************
+        <!--**********************************
            Support ticket button start
         ***********************************-->
 
@@ -167,30 +177,68 @@
         Scripts
     ***********************************-->
     <script>
-		'use strict';
+        'use strict';
         var baseUrl = "{!! url('/') !!}";
         var enableCkeditor = '{!! config('Writing.editable') !!}';
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.2.0/classic/ckeditor.js"></script>
+
+
     @stack('inline-scripts')
 
-    @if(!empty(config('dz.public.global.js.top')))
-        @foreach(config('dz.public.global.js.top') as $script)
-                <script src="{{ asset($script) }}" type="text/javascript"></script>
+    @if (!empty(config('dz.public.global.js.top')))
+        @foreach (config('dz.public.global.js.top') as $script)
+            <script src="{{ asset($script) }}" type="text/javascript"></script>
         @endforeach
     @endif
-    @if(!empty(config('dz.public.pagelevel.js.'.$action)))
-        @foreach(config('dz.public.pagelevel.js.'.$action) as $script)
-                <script src="{{ asset($script) }}" type="text/javascript"></script>
+    @if (!empty(config('dz.public.pagelevel.js.' . $action)))
+        @foreach (config('dz.public.pagelevel.js.' . $action) as $script)
+            <script src="{{ asset($script) }}" type="text/javascript"></script>
         @endforeach
     @endif
-    @if(!empty(config('dz.public.global.js.bottom')))
-        @foreach(config('dz.public.global.js.bottom') as $script)
-                <script src="{{ asset($script) }}" type="text/javascript"></script>
+    @if (!empty(config('dz.public.global.js.bottom')))
+        @foreach (config('dz.public.global.js.bottom') as $script)
+            <script src="{{ asset($script) }}" type="text/javascript"></script>
         @endforeach
     @endif
 
+
     @yield('scripts')
-    
+    @if (Session::has('msg'))
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "<?php echo session::get('cls'); ?>",
+                title: "<?php echo session::get('msg'); ?>",
+                showConfirmButton: false,
+                timer: 1500,
+                toast: true
+            });
+        </script>
+    @endif
+
+    <script>
+        $('.delete-btn').on('click', function() {
+            let id = $(this).attr('data-id')
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#delete_form_' + id).submit()
+                }
+            });
+        })
+    </script>
 </body>
+
 </html>

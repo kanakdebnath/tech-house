@@ -1,8 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BlogsController;
-use App\Http\Controllers\Admin\BlogCategoriesController;
 use App\Http\Controllers\Admin\BlogTagsController;
+use App\Http\Controllers\Admin\BlogCategoriesController;
 
 /*
 |--------------------------------------------------------------------------
