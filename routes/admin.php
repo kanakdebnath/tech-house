@@ -3,12 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ChooseMeController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\Admin\RolesController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExpertiseController;
 use App\Http\Controllers\ServiceCategoryController;
+use App\Http\Controllers\PortfolioCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +53,7 @@ Route::middleware(['auth:sanctum', 'verified', 'permissions'])->prefix('admin')-
     Route::resource('packages', PackageController::class);
     Route::resource('service-categories', ServiceCategoryController::class);
     Route::resource('services', ServiceController::class);
+    Route::resource('choose-me', ChooseMeController::class)->only('create', 'store');
+    Route::resource('portfolio-category', PortfolioCategoryController::class);
+    Route::resource('portfolios', PortfolioController::class);
 });

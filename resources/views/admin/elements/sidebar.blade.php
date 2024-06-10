@@ -144,6 +144,21 @@
                     </li>
                 </ul>
             </li>
+
+            <li>
+                <a class="" href="{{ route('choose-me.create') }}" aria-expanded="false">
+                    <i class="flaticon-381-push-pin"></i>
+                    <span class="nav-text">{{ __('Choose Me') }}</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="" href="{{ route('portfolio-category.create') }}" aria-expanded="false">
+                    <i class="flaticon-381-push-pin"></i>
+                    <span class="nav-text">{{ __('Portfolio Category') }}</span>
+                </a>
+            </li>
+
             @canany(['Controllers > PagesController > admin_index', 'Controllers > PagesController > admin_create'])
                 <li>
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
