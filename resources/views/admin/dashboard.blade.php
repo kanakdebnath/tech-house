@@ -12,7 +12,7 @@
 					<h2 class="text-black mb-2 font-w600">0{{ $userscount }}</h2>
 					<p class="mb-0">
 						{{ __('Users') }}
-					</p>	
+					</p>
 				</div>
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 					<h2 class="text-black mb-2 font-w600">0{{ $rolescount }}</h2>
 					<p class="mb-0">
 						{{ __('Roles') }}
-					</p>	
+					</p>
 				</div>
 			</div>
 		</div>
@@ -35,7 +35,7 @@
 					<h2 class="text-black mb-2 font-w600">0{{ $pagescount }}</h2>
 					<p class="mb-0">
 						{{ __('Pages') }}
-					</p>	
+					</p>
 				</div>
 			</div>
 		</div>
@@ -43,11 +43,11 @@
 			<div class="card card-coin">
 				<div class="card-body text-center">
 						<svg class="mb-3 currency-icon" width="80" height="80"  version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-							 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+							viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 						<circle style="fill:#a3d4ff;" cx="256" cy="256" r="256"/>
 						<path style="fill:#65b1fc;" d="M511.716,267.195L387.661,143.137H172.692l-24.174,24.174l-24.172,24.21v129.536h0.036
 							l185.247,185.27C421.732,482.424,506.634,385.17,511.716,267.195z"/>
-						<polygon style="fill:#FFFFFF;" points="124.344,191.506 124.344,321.042 281.431,321.042 329.231,368.855 329.231,321.042 
+						<polygon style="fill:#FFFFFF;" points="124.344,191.506 124.344,321.042 281.431,321.042 329.231,368.855 329.231,321.042
 							387.656,321.042 387.656,143.137 172.703,143.137 "/>
 						<polygon style="fill:#E1EFFA;" points="124.344,239.859 172.703,191.506 148.534,167.309 124.344,191.506 "/>
 						<polygon style="fill:#FF8E31;" points="172.703,191.506 124.344,191.506 172.703,143.137 "/>
@@ -86,7 +86,7 @@
 					<h2 class="text-black mb-2 font-w600">0{{ $blogscount }}</h2>
 					<p class="mb-0">
 						{{ __('Blogs') }}
-					</p>	
+					</p>
 				</div>
 			</div>
 		</div>
@@ -112,7 +112,7 @@
 				</div>
 				<div class="card-body pb-0">
 					<div id="currentChart" class="current-chart"></div>
-					<div class="chart-content">	
+					<div class="chart-content">
 						@forelse($blog_categories as $key => $blog_category)
 							@php
 								$colors = array('#EB8153','#71B945','#4A8CDA','#6647BF');
@@ -131,7 +131,7 @@
 				        @empty
 				        	<div class="col-12">{{ __('Blog Category not found') }}</div>
 				        @endforelse
-					</div>	
+					</div>
 				</div>
 			</div>
 		</div>
